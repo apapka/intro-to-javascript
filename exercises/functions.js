@@ -86,5 +86,76 @@ let initGame =  () =>{
 }
 let game = initGame();
 
-console.log('Level: ' + game.level);
-console.log('Score: ' + game.score);
+// console.log('Level: ' + game.level);
+// console.log('Score: ' + game.score);
+
+
+//greet 1
+// function greet(greeting = 'Hello') {
+//   console.log(greeting + ', world!');
+// }
+//greet 2
+// function greet(greeting = 'Hello', recipient = 'world') {
+//   console.log(greeting + ', ' + recipient + '!');
+// }
+
+//greet 3 
+// function greeting() {
+//   return 'Good morning';
+// }
+
+// function recipient() {
+//   return 'Launch School';
+// }
+// function greet() {
+//   console.log(greeting() + ', ' + recipient());
+// }
+
+
+
+// greet();                                // logs: Hello, world!
+// greet('Salutations');                   // logs: Salutations, world!
+// greet('Good morning', 'Launch School'); // logs: Good morning, Launch School!
+
+//Transformation
+let string1= 'Captain Ruby';
+let string2 = string1.substring(0,7) + ' JavaScript';
+console.log(string2);
+
+
+//Internationalization 1
+function greet(text){
+  switch (text){
+    case 'en': return 'Hi!';
+    case 'fr': return 'Salut!';
+    case 'pt': return 'Olá';
+    case 'de': return 'Hallo';
+    case 'sv': return 'Hej!';
+    case 'af': return 'Haai';
+
+  }
+}
+//Locale Part 1
+function extractLanguage(text){
+  return text.split('_')[0];
+  
+}
+//locale part 2 
+function extractRegion(text){
+  return text.split('_')[1].substring(0,2);
+}
+console.log(extractRegion('en_US.UTF-8'));  // 'US'
+extractRegion('en_GB.UTF-8');  // 'GB'
+extractRegion('ko_KR.UTF-16'); // 'KR'
+
+//internationalization 2
+function localGreet(text){
+  let language = extractLanguage(text);
+  let region = extractRegion(text);
+  switch(region){
+    case 'US': return 'Hey';
+    case 'GB': return 'Hello!';
+    case 'AU': return 'Howdy!';
+    default:return greet(language);
+  }
+}

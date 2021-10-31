@@ -68,8 +68,30 @@ let myArray = [
 // console.log(oddLengths(arr)); // => [1, 5, 3]
 
 //use reduce to compute the sum of the squares of all numbers in an array.
-function sumOfSquares(){
+// function sumOfSquares(array){
+//   return array.reduce((sum, number)=>{
+//     return sum+number*number;
+//     console.log(sum);
+//   },0);
+// }
+// let array = [3, 5, 7];
+// console.log(sumOfSquares(array)); // => 83
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+//determine the lengths of all elements, then discard the even values.
+function oddLengths(array){
+  array.reduce((newArray,text)=>{
+    let length = text.length;
+    if (length % 2 === 1){
+      newArray.push(length);
+      console.log(newArray);
+    }
+    return newArray;
+  },[]);
 
 }
-let array = [3, 5, 7];
-console.log(sumOfSquares(array)); // => 83
+// function oddLengths(array){
+//   let lengths = array.map((text) => text.length);
+//   return lengths.filter((number) => number % 2 !== 0);
+// }
+console.log(oddLengths(arr)); // => [1, 5, 3]
